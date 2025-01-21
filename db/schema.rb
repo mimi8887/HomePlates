@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_01_21_134701) do
+ActiveRecord::Schema[7.1].define(version: 2025_01_21_140924) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -19,10 +19,10 @@ ActiveRecord::Schema[7.1].define(version: 2025_01_21_134701) do
     t.string "description"
     t.string "image"
     t.string "cooking_time"
-    t.text "ingredients"
     t.text "instruction"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "ingredients", default: [], array: true
   end
 
   create_table "users", force: :cascade do |t|
