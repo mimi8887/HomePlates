@@ -1,13 +1,14 @@
-<h1><%= @recipe.title %></h1>
-<p><%= @recipe.description %></p>
-<img src="<%= @recipe.image %>" alt="<%= @recipe.title %>">
-<p><strong>Cooking Time:</strong> <%= @recipe.cooking_time %></p>
-<h3>Ingredients</h3>
-<ul>
-  <% @recipe.ingredients.each do |ingredient| %>
-    <li><%= ingredient %></li>
-  <% end %>
-</ul>
-<h3>Instructions</h3>
-<p><%= @recipe.instruction %></p>
+<!-- app/views/recipes/show.html.erb -->
+<h1><%= @recipe["recipeTitle"] %></h1>
 
+<% if @recipe["imageUrl"].present? %>
+  <img src="<%= @recipe["imageUrl"] %>" alt="<%= @recipe["recipeTitle"] %>">
+<% end %>
+
+<h2>Materials</h2>
+<p><%= @recipe["recipeMaterial"] %></p>
+
+<h2>Recipe Link</h2>
+<p>
+  <a href="<%= @recipe["recipeLink"] %>" target="_blank">View Full Recipe</a>
+</p>
