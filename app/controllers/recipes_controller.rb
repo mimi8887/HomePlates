@@ -16,4 +16,8 @@ class RecipesController < ApplicationController
     recipes = JSON.parse(recipes_serialized)
     @recipe = recipes["result"].find{|recipe| recipe["recipeId"].to_s == recipe_id}
   end
+
+  def category
+    
+  end
 end

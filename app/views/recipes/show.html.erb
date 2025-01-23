@@ -1,4 +1,5 @@
 <!-- app/views/recipes/show.html.erb -->
+<%= link_to 'Back', recipes_path %>
 <h1><%= @recipe["recipeTitle"] %></h1>
 
 <% if @recipe["imageUrl"].present? %>
