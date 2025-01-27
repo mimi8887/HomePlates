@@ -2,7 +2,7 @@
 <ul>
   <% @recipes.each do |recipe| %>
     <li>
-      <h3><%= link_to recipe["recipeTitle"], recipe_path(recipe["recipeId"]) %></h3>
+      <h2><%= link_to recipe["recipeTitle"], recipe_path(recipe["recipeId"], recipe: recipe.to_json) %></h2>
       <p><%= recipe["recipeDescription"] %></p>
     </li>
   <% end %>
