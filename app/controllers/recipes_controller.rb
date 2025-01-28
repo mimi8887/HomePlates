@@ -27,15 +27,18 @@ class RecipesController < ApplicationController
     url = "https://app.rakuten.co.jp/services/api/Recipe/CategoryRanking/20170426?applicationId=1045425526601869289&categoryId=#{category_id}"
     response = URI.parse(url).read
     recipes = JSON.parse(response)
-    @recipes = recipes["result"].first(5)
+    @recipes = recipes["result"].first(10)
     @category_name = get_category_name(category_id)
-    # raise
+    raise
   end
 
   private
 
   def get_category_name(category_id)
     # Map category IDs to names for display
-    { "31" => "Meat"}[category_id]
+    { "31" => "Meat", "12" => "Veggies", "32" => "Fish", "33" => "Eggs",
+      "35" => "Soy/Tofu", "14" => "Rice", "16" => "Noodle", "17" => "Soups",
+      "18" => "Salads", "27" => "Drinks", "20" => "Bento Box", "39" => "Healthy",
+      "52" => "Spring", "53" => "Summer", "54" => "Fall", "55" => "Winter" }[category_id]
   end
 end
