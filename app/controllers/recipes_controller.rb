@@ -18,7 +18,7 @@ class RecipesController < ApplicationController
       recipes_serialized = URI.parse(url).read
       recipes = JSON.parse(recipes_serialized)
       @recipe = recipes["result"].find { |recipe| recipe["recipeId"].to_s == recipe_id }
-    # raise
+    raise
     end
   end
 
@@ -27,7 +27,7 @@ class RecipesController < ApplicationController
     url = "https://app.rakuten.co.jp/services/api/Recipe/CategoryRanking/20170426?applicationId=1045425526601869289&categoryId=#{category_id}"
     response = URI.parse(url).read
     recipes = JSON.parse(response)
-    @recipes = recipes["result"].first(10)
+    @recipes = recipes["result"]
     @category_name = get_category_name(category_id)
     raise
   end
